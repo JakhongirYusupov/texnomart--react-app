@@ -7,9 +7,18 @@
   font-family: 'Roboto';
 }
 
+.header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 :root {
   --primary-dark-color: #333;
   --primary-light-color: #fff;
+  --primary-gold-color: #FBC100;
 }
 
 /* roboto-regular - latin */

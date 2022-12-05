@@ -1,8 +1,3 @@
-.header {
-  width: 100%;
-  height: auto;
-}
-
 .headerTop {
   width: 100%;
   height: 36px;
@@ -12,12 +7,12 @@
 }
 
 .headerTop-wrapper {
-  margin: 0 auto;
+  max-width: 1424px;
   height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
   display: flex;
   align-items: center;
-  max-width: 1424px;
-  padding: 0 32px;
 }
 
 .headerTop-location {
@@ -36,6 +31,7 @@
   left: 0;
   background-color: var(--primary-light-color);
   border-radius: 6px;
+  z-index: 8;
 }
 
 .headerTop-location-bar>p {
@@ -131,6 +127,7 @@
   background-color: var(--primary-light-color);
   border-radius: 6px;
   overflow: hidden;
+  z-index: 8;
 }
 
 .headerTop-lang-bar>p {

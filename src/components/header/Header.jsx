@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import c from "./Header.module.css";
 import { SlLocationPin } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
-import { HiOutlineGlobe } from 'react-icons/hi'
-import { IoIosArrowDown } from 'react-icons/io'
+import { HiOutlineGlobe } from 'react-icons/hi';
+import { IoIosArrowDown } from 'react-icons/io';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -23,9 +23,8 @@ export default function Header() {
     setactiveRegion(el => e.target.innerText)
     setonMouseRegion(false)
   }
-
   return (
-    <div className={c.header}>
+    <div className="header">
       <div className={c.headerTop}>
         <div className={c["headerTop-wrapper"]}>
           <div className={c["headerTop-location"]} onMouseEnter={() => setonMouseRegion(true)} onMouseLeave={() => setonMouseRegion(false)}>
@@ -79,7 +78,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div>jgeirhgrei</div>
     </div>
   )
 }

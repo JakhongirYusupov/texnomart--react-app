@@ -16,5 +16,24 @@
       "samarqand": "Samarqand viloyati",
       "qoraqalpoq": "Qoraqalpog'iston respublikasi"
     }
+  },
+  "headermain": {
+    "select": {
+      "all": "Barcha kategoriyalar",
+      "texnica": "Maishiy texnika",
+      "office": "Ofis jihozlari",
+      "kitchen": "Oshxona uchun texnika",
+      "home": "Uy uchun idishlar",
+      "car": "Avtomobil uchun mahsulotlar",
+      "weather": "Iqlim uchun texnikalar",
+      "tv": "Televizorlar va telekartalar",
+      "phone": "Telefon va gadjetlar",
+      "computer": "Kompyuter texnikasi"
+    },
+    "order": "Buyurtma holati",
+    "enter": "Kirish",
+    "comparison": "Taqqoslash",
+    "favourite": "Sevimlilar",
+    "cart": "Savatcha"
   }
 }

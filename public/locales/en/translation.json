@@ -16,5 +16,24 @@
       "samarqand": "Samarkand region",
       "qoraqalpoq": "Republic of Karakalpakstan"
     }
+  },
+  "headermain": {
+    "select": {
+      "all": "All categories",
+      "texnica": " technique",
+      "office": "Office equipment",
+      "kitchen": "Technique for cooking",
+      "home": "Housewares",
+      "car": "Car products",
+      "weather": "Techniques for climate",
+      "tv": "Televisions and telecards",
+      "phone": "Phone and gadgets",
+      "computer": "Computer technology"
+    },
+    "order": "Order status",
+    "enter": "Enter",
+    "comparison": "Comparison",
+    "favourite": "Favorites",
+    "cart": "Cart"
   }
 }
