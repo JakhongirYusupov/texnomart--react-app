@@ -1,0 +1,20 @@
+{
+  "headertop": {
+    "location": "Tashkent",
+    "ourshop": "Our stores",
+    "b2b": "B2B sales",
+    "time__price": "Installment purchase",
+    "price__type": "Payment methods",
+    "guarantee": "Warranty for products",
+    "contact": "Contact number:  ",
+    "regions": {
+      "tashkent": "Tashkent region",
+      "buxoro": "Bukhara region",
+      "andijon": "Andijan region",
+      "fargona": "Fergana region",
+      "namangan": "Namangan region",
+      "samarqand": "Samarkand region",
+      "qoraqalpoq": "Republic of Karakalpakstan"
+    }
+  }
+}

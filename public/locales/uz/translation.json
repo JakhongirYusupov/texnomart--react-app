@@ -1,0 +1,20 @@
+{
+  "headertop": {
+    "location": "Toshkent",
+    "ourshop": "Bizning do'konlarimiz",
+    "b2b": "B2B savdosi",
+    "time__price": "Muddatli to'lovga sotib olish",
+    "price__type": "To'lov usullari",
+    "guarantee": "Mahsulotlar uchun kafolat",
+    "contact": "Aloqa raqami:  ",
+    "regions": {
+      "tashkent": "Toshkent viloyati",
+      "buxoro": "Buxoro viloyati",
+      "andijon": "Andijon viloyati",
+      "fargona": "Farg'ona viloyati",
+      "namangan": "Namangan viloyati",
+      "samarqand": "Samarqand viloyati",
+      "qoraqalpoq": "Qoraqalpog'iston respublikasi"
+    }
+  }
+}

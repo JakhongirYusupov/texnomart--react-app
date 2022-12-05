@@ -1,0 +1,144 @@
+.header {
+  width: 100%;
+  height: auto;
+}
+
+.headerTop {
+  width: 100%;
+  height: 36px;
+  font-size: 13px;
+  color: var(--primary-light-color);
+  background-color: var(--primary-dark-color);
+}
+
+.headerTop-wrapper {
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  max-width: 1424px;
+  padding: 0 32px;
+}
+
+.headerTop-location {
+  height: 100%;
+  position: relative;
+  margin-right: 30px;
+  display: flex;
+  cursor: pointer;
+}
+
+.headerTop-location-bar {
+  width: 175px;
+  position: absolute;
+  padding: 10px 0;
+  top: 34px;
+  left: 0;
+  background-color: var(--primary-light-color);
+  border-radius: 6px;
+}
+
+.headerTop-location-bar>p {
+  padding: 7px 15px;
+  font-size: 14px;
+  color: var(--primary-dark-color);
+}
+
+.headerTop-location-bar>p:hover {
+  transition: 0.5s;
+  background-color: #F3E9C4;
+}
+
+.headerTop-location-main {
+  display: flex;
+  align-items: center;
+}
+
+.headerTop-location-main>span {
+  width: 70px;
+  margin-left: 4px;
+  overflow: hidden;
+  word-break: keep-all;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: 110%;
+  text-overflow: ellipsis;
+}
+
+.headerTop__location__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.headerTop-navBar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.headerTop-navLink {
+  padding: auto;
+  color: var(--primary-light-color);
+}
+
+.headerTop-contact {
+  display: flex;
+  margin-left: auto;
+}
+
+.headerTop-number {
+  display: flex;
+  gap: 10px;
+}
+
+.headerTop-number>p {
+  padding-top: 3px;
+}
+
+.headerTop-lang {
+  height: 100%;
+  position: relative;
+  margin-left: 32px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid hsla(0, 0%, 84.7%, .2);
+  border-radius: 150px;
+  cursor: pointer;
+}
+
+.headerTop-lang>p {
+  padding: 0 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.headerTop-lang-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.headerTop-lang-icon-arrow {
+  width: 14px;
+  height: 14px;
+}
+
+.headerTop-lang-bar {
+  position: absolute;
+  width: 70px;
+  left: 0;
+  top: 22px;
+  background-color: var(--primary-light-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.headerTop-lang-bar>p {
+  padding: 10px;
+  color: var(--primary-dark-color);
+  text-align: center;
+}
+
+.headerTop-lang-bar>p:hover {
+  background-color: #F3E9C4;
+}
