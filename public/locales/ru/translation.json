@@ -35,5 +35,9 @@
     "comparison": "Сравнение",
     "favourite": "Избранное",
     "cart": "Корзина"
+  },
+  "headerbottom": {
+    "katalog": "Каталог",
+    "yellowweak": "Желтая неделя"
   }
 }

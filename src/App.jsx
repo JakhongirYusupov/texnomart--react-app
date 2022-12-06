@@ -1,12 +1,17 @@
+import { useState } from 'react';
 import './App.css';
 import HeaderMain from './components/header-main/HeaderMain';
-import Header from './components/header/Header';
+import HeaderTop from './components/header-top/HeaderTop';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { t } = useTranslation();
+  const [activeSelect, setactiveSelect] = useState(t("headermain.select.all"));
+
   return (
     <div>
-      <Header></Header>
-      <HeaderMain />
+      <HeaderTop setactiveSelect={setactiveSelect} />
+      <HeaderMain activeSelect={activeSelect} setactiveSelect={setactiveSelect} />
     </div>
   );
 }

@@ -35,5 +35,9 @@
     "comparison": "Taqqoslash",
     "favourite": "Sevimlilar",
     "cart": "Savatcha"
+  },
+  "headerbottom": {
+    "katalog": "Katalog",
+    "yellowweak": "Sariq hafta"
   }
 }

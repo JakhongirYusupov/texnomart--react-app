@@ -35,5 +35,9 @@
     "comparison": "Comparison",
     "favourite": "Favorites",
     "cart": "Cart"
+  },
+  "headerbottom": {
+    "katalog": "Catalog",
+    "yellowweak": "Yellow week"
   }
 }

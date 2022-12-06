@@ -1,0 +1,121 @@
+[
+  {
+    "title": "Маиший техника",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/texnika_dlya_doma.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Chayka",
+        "Aurora",
+        "Janome",
+        "Bernette",
+        "Overloklar",
+        "Tikuv mashina to'plamlari"
+      ]
+    }
+  },
+  {
+    "title": "Офис жиҳозлари",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/ofisnaya_texnika.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Barcha Wi-fi routerlar",
+        "TP-Link routerlar",
+        "D-Link routerlar",
+        "Xiaomi routerlar",
+        "Tenda routerlar"
+      ]
+    }
+  },
+  {
+    "title": "Ошхона учун техника",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/texnika_dlya_kuxni.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Blenderlar",
+        "Havo yutgich",
+        "Vafli pishirgichlar",
+        "Gril va barbekyu",
+        "Oshxona tarozisi",
+        "Oshxona kombaynlari",
+        "Mikroto'lqinli pechlar",
+        "Mikserlar"
+      ]
+    }
+  },
+  {
+    "title": "Уй учун идишлар",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/posuda_dlya_doma.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Chayka",
+        "Aurora",
+        "Janome",
+        "Bernette",
+        "Overloklar",
+        "Tikuv mashina to'plamlari"
+      ]
+    }
+  },
+  {
+    "title": "Автомобил учун маҳсулотлар",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/tovar_dlya_avto.svg",
+    "category": {
+      "sub__title": "РАДАР ДЕТЕКТОРЛАР",
+      "categories": [
+        "Tomahawk radar detektorlari",
+        "Inspector radar detektorlari",
+        "Neoline radar detektorlari",
+        "Intego radar detektorlari"
+      ]
+    }
+  },
+  {
+    "title": "Иқлим техникаси",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/klimaticheskaya_texnika.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Chayka",
+        "Aurora",
+        "Janome",
+        "Bernette",
+        "Overloklar",
+        "Tikuv mashina to'plamlari"
+      ]
+    }
+  },
+  {
+    "title": "Телевизорлар ва телекарталар",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/televizori_i_telekarti.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Chayka",
+        "Aurora",
+        "Janome",
+        "Bernette",
+        "Overloklar",
+        "Tikuv mashina to'plamlari"
+      ]
+    }
+  },
+  {
+    "title": "Телефонлар ва Гаджетлар",
+    "image": "https://backend.texnomart.uz/files/global/new-photo/img/category_for_pc/telefoni_i_gatjeti.svg",
+    "category": {
+      "sub__title": "ТИКУВ МАШИНАЛАРИ",
+      "categories": [
+        "Chayka",
+        "Aurora",
+        "Janome",
+        "Bernette",
+        "Overloklar",
+        "Tikuv mashina to'plamlari"
+      ]
+    }
+  }
+]

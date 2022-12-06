@@ -6,11 +6,12 @@
   background-color: var(--primary-dark-color);
 }
 
-.headerTop-wrapper {
-  max-width: 1424px;
+.headerTop>div {
   height: 100%;
-  margin: 0 auto;
-  padding: 0 32px;
+}
+
+.headerTop-wrapper {
+  height: 100%;
   display: flex;
   align-items: center;
 }
