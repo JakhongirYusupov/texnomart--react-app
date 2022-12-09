@@ -12,7 +12,7 @@ import axios from 'axios';
 import dataKatalog from '../../data/katalog-dummy-data.json';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function HeaderMain({ setactiveSelect, activeSelect }) {
+export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin }) {
   const { t } = useTranslation();
 
   const [onMouseSelect, setonMouseSelect] = useState(false);
@@ -69,7 +69,7 @@ export default function HeaderMain({ setactiveSelect, activeSelect }) {
               <div><BsBoxSeam className={c["navBar-item-icon"]} /></div>
               <span>{t("headermain.order")}</span>
             </Link>
-            <Link to="/login" className={c["navBar-item"]}>
+            <Link to="/" className={c["navBar-item"]} onClick={(() => setactiveLogin(true))}>
               <div><BsPerson className={c["navBar-item-icon"]} /></div>
               <span>{t("headermain.enter")}</span>
             </Link>

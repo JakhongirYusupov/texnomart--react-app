@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Муддатли тўловга сотиб олиш",
+    "desc": "Техномартда маиший техника маҳсулотлари учун қулай онлайн тўлов",
+    "img": "https://texnomart.uz/_nuxt/img/installment-1.da8d77c.svg"
+  },
+  {
+    "title": "Бепул етказиб бериш",
+    "desc": "Техномартга товарларни eтказиб бериш шартлари",
+    "img": "https://texnomart.uz/_nuxt/img/installment-2.de0c0ae.svg"
+  },
+  {
+    "title": "Маҳсулотлар учун кафолат",
+    "desc": "Техномартда маҳсулотнинг кафолати ва қайтарилиши ҳақида ҳамма нарсани билиб олинг",
+    "img": "https://texnomart.uz/_nuxt/img/installment-3.575d98a.svg"
+  },
+  {
+    "title": "Бонус тизими",
+    "desc": "Бонус тизими",
+    "img": "https://texnomart.uz/_nuxt/img/installment-4.4086694.svg"
+  },
+  {
+    "title": "Ёрдам",
+    "desc": "Кўп бериладиган саволлар",
+    "img": "https://texnomart.uz/_nuxt/img/installment-5.513f513.svg"
+  }
+]

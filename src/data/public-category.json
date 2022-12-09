@@ -1,0 +1,37 @@
+{
+  "title": "Ommabop kategoriyalar",
+  "categories": [
+    {
+      "name": "Smartfonlar",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/smartfon.svg"
+    },
+    {
+      "name": "Changyutgichlar",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/pilesos.svg"
+    },
+    {
+      "name": "Planshetlar",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/planshet.svg"
+    },
+    {
+      "name": "Muzlatgichlar",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/xolodilnik.svg"
+    },
+    {
+      "name": "Havo sovutgichlari",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/klimaticheskaya-texnika.svg"
+    },
+    {
+      "name": "Televizorlar",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/lg.svg"
+    },
+    {
+      "name": "Fenlar",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/feni.svg"
+    },
+    {
+      "name": "Kir yuvish mashinalari",
+      "image": "https://backend.texnomart.uz/files/global/new-photo/img/special-slider/stiralnaya_mashina.svg"
+    }
+  ]
+}

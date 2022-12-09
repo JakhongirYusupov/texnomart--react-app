@@ -1,0 +1,16 @@
+.hero-banner {
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-img>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
