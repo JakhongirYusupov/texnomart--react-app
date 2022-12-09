@@ -16,8 +16,6 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { GiScales } from 'react-icons/gi';
 import supportData from '../../data/support-dummy-data.json';
 
-
-
 export default function Products() {
   const [dataClothes, setdataClothes] = useState(null);
   const [dataElectronics, setdataElectronics] = useState(null);

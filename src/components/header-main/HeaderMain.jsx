@@ -12,7 +12,7 @@ import axios from 'axios';
 import dataKatalog from '../../data/katalog-dummy-data.json';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin }) {
+export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin, scrollY }) {
   const { t } = useTranslation();
 
   const [onMouseSelect, setonMouseSelect] = useState(false);
@@ -33,58 +33,60 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
   return (
     <div className='header'>
       <div className="container">
-        <div className={c.headerMain}>
-          <div className={c["headerMain__logo-wrapper"]}>
-            <img src={logo} alt="texnomart" />
-          </div>
-          <div className={c["headerMain__search"]}>
-            <form className={c.form} action="">
-              <div className={c["headerMain__select-wrapper"]} onMouseEnter={() => setonMouseSelect(true)} onMouseLeave={() => setonMouseSelect(false)}>
-                <span>{activeSelect}</span>
-                <IoIosArrowDown className={c["headerMain__select-icon"]} />
-                {
-                  onMouseSelect ?
-                    <div className={c["headerMain__select-bar"]}>
-                      <p onClick={setSelect}>{t("headermain.select.all")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.texnica")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.office")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.kitchen")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.home")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.car")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.weather")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.tv")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.phone")}</p>
-                      <p onClick={setSelect}>{t("headermain.select.computer")}</p>
-                    </div>
-                    : null
-                }
-              </div>
-              <input type="text" className={c.headerMain__input} />
-              <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} /></div>
-              <div className={c["headerMain__search-btn-wrapper"]}><BsSearch className={c["headerMain__search-btn"]} /></div>
-            </form>
-          </div>
-          <div className={c["navBar"]}>
-            <Link to="/" className={c["navBar-item"]}>
-              <div><BsBoxSeam className={c["navBar-item-icon"]} /></div>
-              <span>{t("headermain.order")}</span>
-            </Link>
-            <Link to="/" className={c["navBar-item"]} onClick={(() => setactiveLogin(true))}>
-              <div><BsPerson className={c["navBar-item-icon"]} /></div>
-              <span>{t("headermain.enter")}</span>
-            </Link>
-            <Link to="/comparison" className={c["navBar-item"]}>
-              <div><GiScales className={c["navBar-item-icon"]} /></div>
-              <span>{t("headermain.comparison")}</span>
-            </Link>
-            <Link to="/" className={c["navBar-item"]}>
-              <div><AiOutlineHeart className={c["navBar-item-icon"]} /></div>
-              <span>{t("headermain.favourite")}</span>
-            </Link>
-            <Link to="/cart" className={c["navBar-item"]}>
-              <div><BsCart3 className={c["navBar-item-icon"]} /></div>
-              <span>{t("headermain.cart")}</span>
-            </Link>
+        <div className={scrollY ? `${c.headerMain}` : null}>
+          <div className={c.headerMainWrapper}>
+            <div className={c["headerMain__logo-wrapper"]}>
+              <img src={logo} alt="texnomart" />
+            </div>
+            <div className={c["headerMain__search"]}>
+              <form className={c.form} action="">
+                <div className={c["headerMain__select-wrapper"]} onMouseEnter={() => setonMouseSelect(true)} onMouseLeave={() => setonMouseSelect(false)}>
+                  <span>{activeSelect}</span>
+                  <IoIosArrowDown className={c["headerMain__select-icon"]} />
+                  {
+                    onMouseSelect ?
+                      <div className={c["headerMain__select-bar"]}>
+                        <p onClick={setSelect}>{t("headermain.select.all")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.texnica")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.office")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.kitchen")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.home")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.car")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.weather")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.tv")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.phone")}</p>
+                        <p onClick={setSelect}>{t("headermain.select.computer")}</p>
+                      </div>
+                      : null
+                  }
+                </div>
+                <input type="text" className={c.headerMain__input} />
+                <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} /></div>
+                <div className={c["headerMain__search-btn-wrapper"]}><BsSearch className={c["headerMain__search-btn"]} /></div>
+              </form>
+            </div>
+            <div className={c["navBar"]}>
+              <Link to="/" className={c["navBar-item"]}>
+                <div><BsBoxSeam className={c["navBar-item-icon"]} /></div>
+                <span>{t("headermain.order")}</span>
+              </Link>
+              <Link to="/" className={c["navBar-item"]} onClick={(() => setactiveLogin(true))}>
+                <div><BsPerson className={c["navBar-item-icon"]} /></div>
+                <span>{t("headermain.enter")}</span>
+              </Link>
+              <Link to="/comparison" className={c["navBar-item"]}>
+                <div><GiScales className={c["navBar-item-icon"]} /></div>
+                <span>{t("headermain.comparison")}</span>
+              </Link>
+              <Link to="/" className={c["navBar-item"]}>
+                <div><AiOutlineHeart className={c["navBar-item-icon"]} /></div>
+                <span>{t("headermain.favourite")}</span>
+              </Link>
+              <Link to="/cart" className={c["navBar-item"]}>
+                <div><BsCart3 className={c["navBar-item-icon"]} /></div>
+                <span>{t("headermain.cart")}</span>
+              </Link>
+            </div>
           </div>
         </div>
         <div className={c.headerBottom}>

@@ -11,15 +11,22 @@ function App() {
   const { t } = useTranslation();
   const [activeSelect, setactiveSelect] = useState(t("headermain.select.all"));
   const [activeLogin, setactiveLogin] = useState(false);
+  const [windowscrollY, setwindowscrollY] = useState(false);
 
   return (
     <div className='App'>
       <HeaderTop setactiveSelect={setactiveSelect} />
-      <HeaderMain activeSelect={activeSelect} setactiveSelect={setactiveSelect} setactiveLogin={setactiveLogin} />
+      <HeaderMain activeSelect={activeSelect} setactiveSelect={setactiveSelect} setactiveLogin={setactiveLogin} scrollY={windowscrollY} />
       <Routes />
       <Footer />
       {
         activeLogin ? <SignupLogin setactiveLogin={setactiveLogin} /> : null
+      }
+      {
+        window.addEventListener("scroll", (e) => {
+          if (window.scrollY >= 400) setwindowscrollY(true)
+          else setwindowscrollY(false)
+        })
       }
     </div>
   );

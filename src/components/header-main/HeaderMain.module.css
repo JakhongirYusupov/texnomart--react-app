@@ -1,7 +1,20 @@
 .headerMain {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 2%);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .05));
+}
+
+.headerMainWrapper {
   padding: 18px 0;
   display: flex;
   justify-content: space-between;
+  max-width: 1424px;
+  margin: 0 auto;
 }
 
 .headerMain__logo-wrapper>img {

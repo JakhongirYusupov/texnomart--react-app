@@ -16,7 +16,7 @@ export default function SeeAll() {
   useEffect(() => {
     axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
       .then((res) => setData(res.data))
-      .catch((error) => console.log(error))
+      .catch()
   }, [categoryId])
   return (
     <div>
