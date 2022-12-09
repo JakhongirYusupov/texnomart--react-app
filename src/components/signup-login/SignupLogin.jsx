@@ -4,12 +4,9 @@ import c from './SignupLogin.module.css';
 import { useState } from 'react';
 import { auth } from '../../firebase/config';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { useHistory } from 'react-router-dom';
-
 
 export default function Signup({ setactiveLogin }) {
   const { t } = useTranslation();
-  const history = useHistory();
 
   const [isLoginSignup, setisLoginSignup] = useState('signup');
   const [inputEmail, setInputEmail] = useState("");
