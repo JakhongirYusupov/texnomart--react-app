@@ -12,7 +12,7 @@ import axios from 'axios';
 import dataKatalog from '../../data/katalog-dummy-data.json';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin, scrollY }) {
+export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin, scrollY, setactiveCart }) {
   const { t } = useTranslation();
 
   const [onMouseSelect, setonMouseSelect] = useState(false);
@@ -82,10 +82,10 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
                 <div><AiOutlineHeart className={c["navBar-item-icon"]} /></div>
                 <span>{t("headermain.favourite")}</span>
               </Link>
-              <Link to="/cart" className={c["navBar-item"]}>
+              <div onClick={(() => setactiveCart(true))} className={c["navBar-item"]}>
                 <div><BsCart3 className={c["navBar-item-icon"]} /></div>
                 <span>{t("headermain.cart")}</span>
-              </Link>
+              </div>
             </div>
           </div>
         </div>

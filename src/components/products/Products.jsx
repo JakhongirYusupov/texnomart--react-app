@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineHeart } from 'react-icons/ai';
 import { GiScales } from 'react-icons/gi';
 import supportData from '../../data/support-dummy-data.json';
+import { useDispatch } from "react-redux";
 
 export default function Products() {
   const [dataClothes, setdataClothes] = useState(null);
@@ -22,12 +23,13 @@ export default function Products() {
   const [dataFurniture, setdataFurniture] = useState(null);
   const [dataShoes, setdataShoes] = useState(null);
   const [dataOthers, setdataOthers] = useState(null);
+  const dispatch = useDispatch();
 
   const fetch = (url, setMethod) => {
     axios.get(url)
       .then(({ data }) => setMethod(data))
       .catch()
-  }
+  };
 
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/categories/1/products", setdataClothes);
@@ -36,6 +38,15 @@ export default function Products() {
     fetch("https://api.escuelajs.co/api/v1/categories/4/products", setdataShoes);
     fetch("https://api.escuelajs.co/api/v1/categories/5/products", setdataOthers);
   }, []);
+
+  const dispatchProduct = (data) => {
+    const action = {
+      type: "ADD_TO_CART",
+      data: data
+    }
+
+    dispatch(action);
+  }
 
 
   return (
@@ -115,7 +126,7 @@ export default function Products() {
                               </article>
                             </Link>
                             <div className={c["product-item-cart-wrapper"]}>
-                              <div className={c["product-item-cart"]}>
+                              <div className={c["product-item-cart"]} onClick={(() => dispatchProduct({ id, title, price, images }))}>
                                 <BsCart3 className={c["product-item-cart-icon"]} />
                                 <p>Savatchaga</p>
                               </div>

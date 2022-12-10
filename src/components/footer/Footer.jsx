@@ -30,7 +30,7 @@ export default function Footer() {
               </a>
             </div>
             <div>
-              <img src="https://texnomart.uz/_nuxt/img/playmarket-logo-kr.24580f9.svg" alt="" />
+              <img style={{ cursor: "pointer" }} src="https://texnomart.uz/_nuxt/img/playmarket-logo-kr.24580f9.svg" alt="" />
             </div>
             <Link className={c["footer-main-contact-bottom-link"]} to="/">Дўконлар манзиллари Тошкент вилояти</Link>
           </div>

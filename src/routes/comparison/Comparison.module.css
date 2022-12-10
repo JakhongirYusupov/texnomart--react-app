@@ -1,0 +1,66 @@
+.comparison-top {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #ececec;
+}
+
+.comparison-title {
+  margin: 20px 0;
+}
+
+.comparison-title>h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.comparison-top-types {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.comparison-main-notfound {
+  margin-bottom: 32px;
+  padding: 0 32px;
+  min-height: 400px;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+}
+
+.comparison-main-notfound-main {
+  margin: 0 auto;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparison-main-notfound-main>img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+}
+
+.comparison-main-notfound-main>h3 {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.comparison-main-notfound-main>p {
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #767676;
+}
+
+.comparison-main-notfound-btn {
+  padding: 6px 20px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+  border: 2px solid #fbc100;
+  border-radius: 6px;
+}

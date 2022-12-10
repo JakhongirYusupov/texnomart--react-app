@@ -89,6 +89,7 @@
   display: flex;
   align-items: center;
   border: 2px dashed #545454;
+  cursor: pointer;
 }
 
 .footer-links-item-button-icon {
