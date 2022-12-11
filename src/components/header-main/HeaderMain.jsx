@@ -104,8 +104,8 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
               <div onClick={(() => setactiveCart(true))} className={c["navBar-item"]}>
                 <div style={{ position: "relative" }}>
                   {
-                    cartData.data.length ?
-                      <div className={c["navBar__cart-count"]}>{cartData.data.length}</div>
+                    cartData.cart.data.length ?
+                      <div className={c["navBar__cart-count"]}>{cartData.cart.data.length}</div>
                       : null
                   }
                   <BsCart3 className={c["navBar-item-icon"]} />

@@ -71,14 +71,14 @@ export default function SeeAll({ setactiveCart }) {
                       </article>
                     </Link>
                     {
-                      dataCart.data.find((e) => e.id === id) ?
+                      dataCart.cart.data.find((e) => e.id === id) ?
                         <div className={c["product-addedCart-wrapper"]}>
                           <div className={c["product-addedCart-icon"]} onClick={(() => setactiveCart(true))} >
                             <BsCartCheck className={c["product-item-cart-icon"]} />
                           </div>
                           <div className={c["product-addedCart-count"]}>
                             <div onClick={(() => minusCount(id))}>-</div>
-                            <div>{dataCart.data.find((e) => e.id === id).count}</div>
+                            <div>{dataCart.cart.data.find((e) => e.id === id).count}</div>
                             <div onClick={(() => pilusCount(id))}>+</div>
                           </div>
                         </div>

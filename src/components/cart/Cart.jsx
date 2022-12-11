@@ -35,10 +35,10 @@ export default function Cart({ setactiveCart }) {
           <h3>Hozir xarid qilish</h3>
         </div>
         {
-          data.data.length ?
+          data.cart.data.length ?
             <div className={c["cart-products"]}>
               {
-                data.data.map(({ id, title, images, price }) => {
+                data.cart.data.map(({ id, title, images, price }) => {
                   allPrice += price
                   return (
                     <div key={id} className={c["cart-product-item"]}>
@@ -52,7 +52,7 @@ export default function Cart({ setactiveCart }) {
                       <div className={c["cart-product-articles"]}>
                         <div className={c["cart-product-count"]}>
                           <div onClick={(() => minusCount(id))}>-</div>
-                          <div>{data.data.find((e) => e.id === id).count}</div>
+                          <div>{data.cart.data.find((e) => e.id === id).count}</div>
                           <div onClick={(() => pilusCount(id))}>+</div>
                         </div>
                         <div className={c["cart-product-removeAndLonely"]}>
@@ -74,7 +74,7 @@ export default function Cart({ setactiveCart }) {
                   Xaridlarni davom ettirish
                 </div>
                 <div className={c["cart-product-bottom-buy"]}>
-                  <p>Jami {data.data.length} mahsulot: <strong>{allPrice} $</strong></p>
+                  <p>Jami {data.cart.data.length} mahsulot: <strong>{allPrice} $</strong></p>
                   <div className={c["cart-product-bottom-buy-button"]}>Xaridni rasmiylashtirish</div>
                 </div>
               </div>

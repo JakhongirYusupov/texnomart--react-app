@@ -2,6 +2,23 @@ const initialCart = {
   data: []
 }
 
+const comparisonCart = {
+  data: []
+}
+
+const COMPARISON = (state = comparisonCart, action) => {
+  switch (action.type) {
+    case "ADD_TO_COMPARISON":
+      return {
+        data: [...state.data, action.data]
+      }
+    default:
+      return {
+        data: state.data
+      }
+  }
+}
+
 const CART = (state = initialCart, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
@@ -36,4 +53,7 @@ const CART = (state = initialCart, action) => {
   }
 }
 
-export default CART
+export {
+  CART,
+  COMPARISON
+} 

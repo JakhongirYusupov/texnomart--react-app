@@ -132,14 +132,14 @@ export default function Pdp({ setactiveCart }) {
               </div>
             </div>
             {
-              dataCart.data.find((e) => e.id === +productId) ?
+              dataCart.cart.data.find((e) => e.id === +productId) ?
                 <div className={c["product-addedCart-wrapper"]}>
                   <div className={c["product-addedCart-icon"]} onClick={(() => setactiveCart(true))} >
                     <BsCartCheck className={c["product-item-cart-icon"]} />
                   </div>
                   <div className={c["product-addedCart-count"]}>
                     <div onClick={(() => minusCount())}>-</div>
-                    <div>{dataCart.data.find((e) => e.id === +productId).count}</div>
+                    <div>{dataCart.cart.data.find((e) => e.id === +productId).count}</div>
                     <div onClick={(() => pilusCount())}>+</div>
                   </div>
                 </div>
