@@ -10,6 +10,23 @@ export default function Cart({ setactiveCart }) {
   const dispatch = useDispatch();
   const data = useSelector(state => state);
 
+  const minusCount = ((id) => {
+    const action = {
+      type: "MINUS_PRODUCT_COUNT",
+      productId: id
+    }
+
+    dispatch(action)
+  })
+  const pilusCount = ((id) => {
+    const action = {
+      type: "PILUS_PRODUCT_COUNT",
+      productId: id
+    }
+
+    dispatch(action)
+  })
+
   let allPrice = 0
   return (
     <div className={c["cart-modal"]}>
@@ -35,9 +52,9 @@ export default function Cart({ setactiveCart }) {
                       </div>
                       <div className={c["cart-product-articles"]}>
                         <div className={c["cart-product-count"]}>
-                          <div>-</div>
-                          <div>{1}</div>
-                          <div>+</div>
+                          <div onClick={(() => minusCount(id))}>-</div>
+                          <div>{data.data.find((e) => e.id === id).count}</div>
+                          <div onClick={(() => pilusCount(id))}>+</div>
                         </div>
                         <div className={c["cart-product-removeAndLonely"]}>
                           <AiOutlineHeart className={c["cart-product-removeAndLonely-icon"]} />

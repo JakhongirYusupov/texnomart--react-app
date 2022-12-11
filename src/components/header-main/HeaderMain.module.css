@@ -137,6 +137,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
   background-color: var(--primary-gold-color);
   cursor: pointer;
 }

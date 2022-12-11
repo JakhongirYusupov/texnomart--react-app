@@ -5,11 +5,11 @@ import Home from './home/Home'
 import Pdp from './pdp/Pdp'
 import SeeAll from './seeall/SeeAll'
 
-export default function Routes() {
+export default function Routes({ setactiveCart }) {
   return (
     <>
       <Route exact path="/">
-        <Home />
+        <Home setactiveCart={setactiveCart} />
       </Route>
       <Route exact path="/category/products/:categoryId">
         <SeeAll />

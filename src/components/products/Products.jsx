@@ -10,20 +10,22 @@ import c from './Products.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { BsCart3, BsArrowRightShort } from 'react-icons/bs';
+import { BsCart3, BsArrowRightShort, BsCartCheck } from 'react-icons/bs';
 import { useEffect, useState } from "react";
 import { AiOutlineHeart } from 'react-icons/ai';
 import { GiScales } from 'react-icons/gi';
 import supportData from '../../data/support-dummy-data.json';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function Products() {
+export default function Products({ setactiveCart }) {
+
   const [dataClothes, setdataClothes] = useState(null);
   const [dataElectronics, setdataElectronics] = useState(null);
   const [dataFurniture, setdataFurniture] = useState(null);
   const [dataShoes, setdataShoes] = useState(null);
   const [dataOthers, setdataOthers] = useState(null);
   const dispatch = useDispatch();
+  const dataCart = useSelector(state => state);
 
   const fetch = (url, setMethod) => {
     axios.get(url)
@@ -48,6 +50,22 @@ export default function Products() {
     dispatch(action);
   }
 
+  const minusCount = ((id) => {
+    const action = {
+      type: "MINUS_PRODUCT_COUNT",
+      productId: id
+    }
+
+    dispatch(action)
+  })
+  const pilusCount = ((id) => {
+    const action = {
+      type: "PILUS_PRODUCT_COUNT",
+      productId: id
+    }
+
+    dispatch(action)
+  })
 
   return (
     <div className={c["products"]}>
@@ -125,18 +143,32 @@ export default function Products() {
                                 </div>
                               </article>
                             </Link>
-                            <div className={c["product-item-cart-wrapper"]}>
-                              <div className={c["product-item-cart"]} onClick={(() => dispatchProduct({ id, title, price, images }))}>
-                                <BsCart3 className={c["product-item-cart-icon"]} />
-                                <p>Savatchaga</p>
-                              </div>
-                              <div>
-                                <AiOutlineHeart className={c["product-item-cart-icons"]} />
-                              </div>
-                              <div>
-                                <GiScales className={c["product-item-cart-icons"]} />
-                              </div>
-                            </div>
+                            {
+                              dataCart.data.find((e) => e.id === id) ?
+                                <div className={c["product-addedCart-wrapper"]}>
+                                  <div className={c["product-addedCart-icon"]} onClick={(() => setactiveCart(true))} >
+                                    <BsCartCheck className={c["product-item-cart-icon"]} />
+                                  </div>
+                                  <div className={c["product-addedCart-count"]}>
+                                    <div onClick={(() => minusCount(id))}>-</div>
+                                    <div>{dataCart.data.find((e) => e.id === id).count}</div>
+                                    <div onClick={(() => pilusCount(id))}>+</div>
+                                  </div>
+                                </div>
+                                :
+                                <div className={c["product-item-cart-wrapper"]}>
+                                  <div className={c["product-item-cart"]} onClick={(() => dispatchProduct({ id, title, price, images, count: 1 }))}>
+                                    <BsCart3 className={c["product-item-cart-icon"]} />
+                                    <p>Savatchaga</p>
+                                  </div>
+                                  <div>
+                                    <AiOutlineHeart className={c["product-item-cart-icons"]} />
+                                  </div>
+                                  <div>
+                                    <GiScales className={c["product-item-cart-icons"]} />
+                                  </div>
+                                </div>
+                            }
                           </SwiperSlide>
                         );
                       })

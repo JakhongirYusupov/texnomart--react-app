@@ -60,9 +60,11 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
                       : null
                   }
                 </div>
-                <input type="text" className={c.headerMain__input} />
+                <input required minLength={3} maxLength={30} type="text" className={c.headerMain__input} />
                 <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} /></div>
-                <div className={c["headerMain__search-btn-wrapper"]}><BsSearch className={c["headerMain__search-btn"]} /></div>
+                <button className={c["headerMain__search-btn-wrapper"]}>
+                  <BsSearch className={c["headerMain__search-btn"]} />
+                </button>
               </form>
             </div>
             <div className={c["navBar"]}>

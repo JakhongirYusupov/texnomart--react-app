@@ -19,7 +19,7 @@ function App() {
     <div className='App'>
       <HeaderTop setactiveSelect={setactiveSelect} />
       <HeaderMain activeSelect={activeSelect} setactiveSelect={setactiveSelect} setactiveLogin={setactiveLogin} scrollY={windowscrollY} setactiveCart={setactiveCart} />
-      <Routes />
+      <Routes setactiveCart={setactiveCart} />
       <Footer />
       {
         activeLogin ? <SignupLogin setactiveLogin={setactiveLogin} /> : null

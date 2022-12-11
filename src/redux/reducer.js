@@ -14,6 +14,20 @@ const CART = (state = initialCart, action) => {
       return {
         data: [...state.data]
       }
+    case "MINUS_PRODUCT_COUNT":
+      state.data.forEach((e) => {
+        if (e.id === action.productId) if (e.count > 1) e.count -= 1
+      })
+      return {
+        data: [...state.data]
+      }
+    case "PILUS_PRODUCT_COUNT":
+      state.data.forEach((e) => {
+        if (e.id === action.productId) if (e.count < 10) e.count += 1
+      })
+      return {
+        data: [...state.data]
+      }
     default:
       return {
         data: state.data
