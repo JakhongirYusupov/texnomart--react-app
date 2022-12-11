@@ -6,21 +6,21 @@ import { BsCart3, BsCartCheck } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { GiScales } from 'react-icons/gi';
 import c from '../../components/products/Products.module.css';
-import d from './SeeAll.module.css';
+import d from './Search.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-export default function SeeAll({ setactiveCart }) {
-  const { categoryId } = useParams();
-  const [data, setData] = useState(null);
+export default function Search({ setactiveCart }) {
+  const { value } = useParams();
+  const [data, setData] = useState([]);
   const dataCart = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
-      .then((res) => setData(res.data))
+    axios.get("https://api.escuelajs.co/api/v1/products")
+      .then((res) => setData(res.data.filter((e) => e.title.toLowerCase().includes(value) === true)))
       .catch()
-  }, [categoryId])
+  }, [value])
 
   const dispatchProduct = (data) => {
     const action = {
@@ -54,7 +54,7 @@ export default function SeeAll({ setactiveCart }) {
       <div className="container">
         <div className={d["seeAll"]}>
           {
-            data ?
+            data.length ?
               data.map(({ id, images, title, price }) => {
                 return (
                   <div key={uuidv4()} className={c["product-item"]}>
@@ -99,7 +99,12 @@ export default function SeeAll({ setactiveCart }) {
                   </div>
                 )
               })
-              : null
+              :
+              <div className={d["not-found-wrapper"]}>
+                <h1>Not Found</h1>
+                <h2>404</h2>
+              </div>
+
           }
         </div>
       </div>

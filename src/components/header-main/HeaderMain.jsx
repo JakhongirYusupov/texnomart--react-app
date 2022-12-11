@@ -7,18 +7,35 @@ import { IoIosArrowDown, IoIosArrowForward, IoMdClose } from 'react-icons/io';
 import { AiOutlineHeart, AiFillThunderbolt } from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
 import { GiScales } from 'react-icons/gi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import dataKatalog from '../../data/katalog-dummy-data.json';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
 
 export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin, scrollY, setactiveCart }) {
   const { t } = useTranslation();
+  const history = useHistory();
 
   const [onMouseSelect, setonMouseSelect] = useState(false);
   const [getCategory, setgetCategory] = useState(null);
   const [katalogBar, setkatalogBar] = useState(dataKatalog[0]);
   const [isactiveKatalog, setisactiveKatalog] = useState(false);
+  const [searchInputValue, setsearchInputValue] = useState("");
+  const cartData = useSelector(state => state);
+
+  const {
+    transcript
+  } = useSpeechRecognition();
+
+  const getSpeechValue = (() => {
+    SpeechRecognition.startListening()
+  })
+
+  useEffect(() => {
+    setsearchInputValue(transcript)
+  }, [transcript])
 
   const setSelect = (e) => {
     setactiveSelect(e.target.innerText);
@@ -35,11 +52,11 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
       <div className="container">
         <div className={scrollY ? `${c.headerMain}` : null}>
           <div className={c.headerMainWrapper}>
-            <div className={c["headerMain__logo-wrapper"]}>
+            <Link to="/" className={c["headerMain__logo-wrapper"]}>
               <img src={logo} alt="texnomart" />
-            </div>
+            </Link>
             <div className={c["headerMain__search"]}>
-              <form className={c.form} action="">
+              <form className={c.form} action="" onSubmit={(() => history.push("/search/" + searchInputValue))}>
                 <div className={c["headerMain__select-wrapper"]} onMouseEnter={() => setonMouseSelect(true)} onMouseLeave={() => setonMouseSelect(false)}>
                   <span>{activeSelect}</span>
                   <IoIosArrowDown className={c["headerMain__select-icon"]} />
@@ -60,8 +77,8 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
                       : null
                   }
                 </div>
-                <input required minLength={3} maxLength={30} type="text" className={c.headerMain__input} />
-                <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} /></div>
+                <input value={searchInputValue} required minLength={3} maxLength={30} type="text" className={c.headerMain__input} onChange={((e) => setsearchInputValue(e.target.value))} />
+                <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} onClick={getSpeechValue} /></div>
                 <button className={c["headerMain__search-btn-wrapper"]}>
                   <BsSearch className={c["headerMain__search-btn"]} />
                 </button>
@@ -85,7 +102,14 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
                 <span>{t("headermain.favourite")}</span>
               </Link>
               <div onClick={(() => setactiveCart(true))} className={c["navBar-item"]}>
-                <div><BsCart3 className={c["navBar-item-icon"]} /></div>
+                <div style={{ position: "relative" }}>
+                  {
+                    cartData.data.length ?
+                      <div className={c["navBar__cart-count"]}>{cartData.data.length}</div>
+                      : null
+                  }
+                  <BsCart3 className={c["navBar-item-icon"]} />
+                </div>
                 <span>{t("headermain.cart")}</span>
               </div>
             </div>

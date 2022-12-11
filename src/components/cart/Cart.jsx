@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsCart3, BsTrash } from 'react-icons/bs';
 import { IoMdClose } from 'react-icons/io';

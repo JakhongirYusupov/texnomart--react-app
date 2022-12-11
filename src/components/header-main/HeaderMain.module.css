@@ -176,6 +176,22 @@
   color: var(--primary-dark-color);
 }
 
+.navBar__cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-dark-color);
+  background-color: var(--primary-gold-color);
+}
+
 
 /*  headerBottom start */
 

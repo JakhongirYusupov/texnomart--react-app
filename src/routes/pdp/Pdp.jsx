@@ -4,16 +4,20 @@ import { useParams } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai';
 import { GiScales } from 'react-icons/gi';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { BsCart3 } from 'react-icons/bs';
+import { BsCart3, BsCartCheck } from 'react-icons/bs';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { MdAdsClick } from 'react-icons/md';
 import { v4 as uuidv4 } from 'uuid';
 import c from './Pdp.module.css';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function Pdp() {
+export default function Pdp({ setactiveCart }) {
   const { productId } = useParams();
   const [data, setData] = useState(null);
   const [activeImg, setactiveImg] = useState(null);
+
+  const dataCart = useSelector(state => state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios.get(`https://api.escuelajs.co/api/v1/products/${productId}`)
@@ -23,6 +27,40 @@ export default function Pdp() {
       })
       .catch()
   }, [productId])
+
+
+  const dispatchProduct = () => {
+    const action = {
+      type: "ADD_TO_CART",
+      data: {
+        id: data.id,
+        title: data.title,
+        images: data.images,
+        price: data.price,
+        count: 1
+      }
+    }
+
+    dispatch(action);
+  }
+
+  const minusCount = (() => {
+    const action = {
+      type: "MINUS_PRODUCT_COUNT",
+      productId: +productId
+    }
+
+    dispatch(action)
+  })
+  const pilusCount = (() => {
+    const action = {
+      type: "PILUS_PRODUCT_COUNT",
+      productId: +productId
+    }
+
+    dispatch(action)
+  })
+
   return (
     data ?
       <div className={c.pdp}>
@@ -93,17 +131,31 @@ export default function Pdp() {
                 </div>
               </div>
             </div>
-            <div className={c["pdp-tocart"]}>
-              <h2>{data.price} $</h2>
-              <div className={c["pdp-tocart-buy-btn"]}>
-                <BsCart3 className={c["pdp-tocart-buy-btn-icon"]} />
-                <p >Savatchaga</p>
-              </div>
-              <div className={`${c["pdp-tocart-buy-btn"]} ${c["pdp-tocart-click-btn"]}`}>
-                <MdAdsClick className={c["pdp-tocart-buy-btn-icon"]} />
-                <p>Birgina click orqali harid</p>
-              </div>
-            </div>
+            {
+              dataCart.data.find((e) => e.id === +productId) ?
+                <div className={c["product-addedCart-wrapper"]}>
+                  <div className={c["product-addedCart-icon"]} onClick={(() => setactiveCart(true))} >
+                    <BsCartCheck className={c["product-item-cart-icon"]} />
+                  </div>
+                  <div className={c["product-addedCart-count"]}>
+                    <div onClick={(() => minusCount())}>-</div>
+                    <div>{dataCart.data.find((e) => e.id === +productId).count}</div>
+                    <div onClick={(() => pilusCount())}>+</div>
+                  </div>
+                </div>
+                :
+                <div className={c["pdp-tocart"]}>
+                  <h2>{data.price} $</h2>
+                  <div onClick={dispatchProduct} className={c["pdp-tocart-buy-btn"]}>
+                    <BsCart3 className={c["pdp-tocart-buy-btn-icon"]} />
+                    <p >Savatchaga</p>
+                  </div>
+                  <div className={`${c["pdp-tocart-buy-btn"]} ${c["pdp-tocart-click-btn"]}`}>
+                    <MdAdsClick className={c["pdp-tocart-buy-btn-icon"]} />
+                    <p>Birgina click orqali harid</p>
+                  </div>
+                </div>
+            }
           </div>
         </div>
       </div>

@@ -1,0 +1,19 @@
+.seeAll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.not-found-wrapper {
+  width: 100%;
+}
+
+.not-found-wrapper>h1 {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.not-found-wrapper>h2 {
+  text-align: center;
+  font-size: 260px;
+}

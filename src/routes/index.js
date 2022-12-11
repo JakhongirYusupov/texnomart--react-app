@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Comparison from './comparison/Comparison'
 import Home from './home/Home'
 import Pdp from './pdp/Pdp'
+import Search from './search/Search'
 import SeeAll from './seeall/SeeAll'
 
 export default function Routes({ setactiveCart }) {
@@ -12,16 +13,19 @@ export default function Routes({ setactiveCart }) {
         <Home setactiveCart={setactiveCart} />
       </Route>
       <Route exact path="/category/products/:categoryId">
-        <SeeAll />
+        <SeeAll setactiveCart={setactiveCart} />
       </Route>
       <Route exact path="/pdp/:productId">
-        <Pdp />
+        <Pdp setactiveCart={setactiveCart} />
       </Route>
       <Route exact path="/category/products/pdp/:productId">
         <Pdp />
       </Route>
       <Route exact path="/comparison">
         <Comparison />
+      </Route>
+      <Route exact path="/search/:value">
+        <Search />
       </Route>
     </>
   )
