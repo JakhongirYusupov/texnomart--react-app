@@ -60,7 +60,7 @@
   width: auto;
   font-size: 14px;
   color: #FFFFFF;
-  text-decoration: un;
+  text-decoration: underline;
 }
 
 .footer-links {
@@ -113,4 +113,67 @@
 .footer-bottom-cashs {
   display: flex;
   gap: 7px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer>div {
+    padding: 36px 24px 56px;
+  }
+
+  .footer-main {
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .footer-links-item {
+    height: 40px;
+    overflow: hidden;
+    transition: 3px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-links-wrapper {
+    margin-bottom: 25px;
+    border-bottom: 2px solid #545454;
+  }
+
+  .footer-main-contact-number {
+    margin-bottom: 24px;
+  }
+
+  .footer-main-contact-networks {
+    margin-bottom: 24px;
+  }
+
+  .footer-main-contact-bottom-link {
+    margin-top: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .footer-bottom-desc {
+    margin-top: 24px;
+    padding-top: 24px;
+    max-width: 100%;
+    font-size: 12px;
+    text-align: center;
+    border-top: 2px solid #545454;
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  .footer>div {
+    padding: 36px 10px 56px;
+  }
+
+  .footer-bottom-cashs {
+    flex-wrap: wrap;
+  }
 }

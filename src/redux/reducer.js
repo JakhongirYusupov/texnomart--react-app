@@ -9,6 +9,13 @@ const comparisonCart = {
 const COMPARISON = (state = comparisonCart, action) => {
   switch (action.type) {
     case "ADD_TO_COMPARISON":
+      const index = state.data?.findIndex((e) => e.id === action.data.id)
+      if (index > -1) {
+        state.data.splice(index, 1)
+        return {
+          data: state.data
+        }
+      }
       return {
         data: [...state.data, action.data]
       }

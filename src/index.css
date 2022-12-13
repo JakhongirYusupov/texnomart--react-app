@@ -12,6 +12,16 @@ body {
   user-select: none;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #FFFFFF;
+}
+
+body::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(45, 43, 43, 0.668);
+  border-radius: 20px;
+}
+
 .header {
   width: 100%;
   position: relative;
@@ -24,6 +34,22 @@ body {
   max-width: 1424px;
   padding: 0 32px;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 956px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
 }
 
 :root {

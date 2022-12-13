@@ -38,8 +38,8 @@ export default function Cart({ setactiveCart }) {
           data.cart.data.length ?
             <div className={c["cart-products"]}>
               {
-                data.cart.data.map(({ id, title, images, price }) => {
-                  allPrice += price
+                data.cart.data.map(({ id, title, images, price, count }) => {
+                  allPrice += price * count
                   return (
                     <div key={id} className={c["cart-product-item"]}>
                       <div className={c["cart-product-img"]}>

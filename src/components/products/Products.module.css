@@ -174,7 +174,7 @@
 .support {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding: 30px 0;
   border-radius: 6px;
   border: 1px solid #ececec;
@@ -186,6 +186,7 @@
   min-height: 160px;
   padding: 0 16px;
   border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
 }
 
 .support-item-img {
@@ -245,4 +246,10 @@
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 512px) {
+  .support-wrapper>h3 {
+    font-size: 20px;
+  }
 }

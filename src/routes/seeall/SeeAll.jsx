@@ -15,6 +15,7 @@ export default function SeeAll({ setactiveCart }) {
   const [data, setData] = useState(null);
   const dataCart = useSelector(state => state);
   const dispatch = useDispatch();
+  const { comparison } = useSelector(state => state);
 
   useEffect(() => {
     axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
@@ -48,6 +49,15 @@ export default function SeeAll({ setactiveCart }) {
     dispatch(action)
   })
 
+  const dispatchToCompare = ((data) => {
+    const action = {
+      type: "ADD_TO_COMPARISON",
+      data: data
+    }
+
+    dispatch(action)
+  })
+
 
   return (
     <div>
@@ -55,7 +65,7 @@ export default function SeeAll({ setactiveCart }) {
         <div className={d["seeAll"]}>
           {
             data ?
-              data.map(({ id, images, title, price }) => {
+              data.map(({ id, images, title, price, description, category }) => {
                 return (
                   <div key={uuidv4()} className={c["product-item"]}>
                     <Link to={"pdp/" + id} className={c["product-item-wrapper"]}>
@@ -91,8 +101,8 @@ export default function SeeAll({ setactiveCart }) {
                           <div>
                             <AiOutlineHeart className={c["product-item-cart-icons"]} />
                           </div>
-                          <div>
-                            <GiScales className={c["product-item-cart-icons"]} />
+                          <div onClick={(() => dispatchToCompare({ id, title, price, images, description, category }))}>
+                            <GiScales style={comparison.data.find((e) => e.id === id) ? { color: "#FBC100" } : null} className={c["product-item-cart-icons"]} />
                           </div>
                         </div>
                     }

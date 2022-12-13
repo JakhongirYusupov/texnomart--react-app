@@ -14,3 +14,21 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media screen and (max-width: 768px) {
+  .hero-banner {
+    height: 434px;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .hero-banner {
+    height: 334px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .hero-banner {
+    height: 234px;
+  }
+}

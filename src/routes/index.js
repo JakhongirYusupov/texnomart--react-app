@@ -22,7 +22,7 @@ export default function Routes({ setactiveCart }) {
         <Pdp />
       </Route>
       <Route exact path="/comparison">
-        <Comparison />
+        <Comparison setactiveCart={setactiveCart} />
       </Route>
       <Route exact path="/search/:value">
         <Search />

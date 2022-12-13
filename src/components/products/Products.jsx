@@ -24,8 +24,10 @@ export default function Products({ setactiveCart }) {
   const [dataFurniture, setdataFurniture] = useState(null);
   const [dataShoes, setdataShoes] = useState(null);
   const [dataOthers, setdataOthers] = useState(null);
+  const [mediaSwiper, setmediaSwiper] = useState(window.innerWidth);
   const dispatch = useDispatch();
   const dataCart = useSelector(state => state);
+  const { comparison } = useSelector(state => state);
 
   const fetch = (url, setMethod) => {
     axios.get(url)
@@ -40,6 +42,11 @@ export default function Products({ setactiveCart }) {
     fetch("https://api.escuelajs.co/api/v1/categories/4/products", setdataShoes);
     fetch("https://api.escuelajs.co/api/v1/categories/5/products", setdataOthers);
   }, []);
+
+  window.addEventListener("resize", () => {
+    const { innerWidth } = window;
+    setmediaSwiper(innerWidth)
+  })
 
   const dispatchProduct = (data) => {
     const action = {
@@ -67,6 +74,15 @@ export default function Products({ setactiveCart }) {
     dispatch(action)
   })
 
+  const dispatchToCompare = ((data) => {
+    const action = {
+      type: "ADD_TO_COMPARISON",
+      data: data
+    }
+
+    dispatch(action)
+  })
+
   return (
     <div className={c["products"]}>
       <div className="container">
@@ -75,7 +91,7 @@ export default function Products({ setactiveCart }) {
             slidesPerView="auto"
             spaceBetween={images.length}
             loop={false}
-            navigation={true}
+            navigation={mediaSwiper > 1024 ? true : false}
             modules={[Navigation]}
             className=""
           >
@@ -94,7 +110,7 @@ export default function Products({ setactiveCart }) {
               slidesPerView="auto"
               spaceBetween={publicCategory.categories.length}
               loop={false}
-              navigation={true}
+              navigation={mediaSwiper > 1024 ? true : false}
               modules={[Navigation]}
               className=""
             >
@@ -123,12 +139,12 @@ export default function Products({ setactiveCart }) {
                     slidesPerView="auto"
                     spaceBetween={10}
                     loop={false}
-                    navigation={true}
+                    navigation={mediaSwiper > 1024 ? true : false}
                     modules={[Navigation]}
                     className={c["product-swiper-wrapper"]}
                   >
                     {
-                      data.slice(1, 10).map(({ id, title, price, images }) => {
+                      data.slice(1, 10).map(({ id, title, price, images, description, category }) => {
                         return (
                           <SwiperSlide key={uuidv4()} className={c["product-item"]}>
                             <Link to={"pdp/" + id} className={c["product-item-wrapper"]}>
@@ -164,8 +180,8 @@ export default function Products({ setactiveCart }) {
                                   <div>
                                     <AiOutlineHeart className={c["product-item-cart-icons"]} />
                                   </div>
-                                  <div>
-                                    <GiScales className={c["product-item-cart-icons"]} />
+                                  <div onClick={(() => dispatchToCompare({ id, title, price, images, description, category }))}>
+                                    <GiScales style={comparison.data.find((e) => e.id === id) ? { color: "#FBC100" } : null} className={c["product-item-cart-icons"]} />
                                   </div>
                                 </div>
                             }

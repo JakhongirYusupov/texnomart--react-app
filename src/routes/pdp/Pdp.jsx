@@ -17,6 +17,7 @@ export default function Pdp({ setactiveCart }) {
   const [activeImg, setactiveImg] = useState(null);
 
   const dataCart = useSelector(state => state);
+  const { comparison } = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,6 +62,15 @@ export default function Pdp({ setactiveCart }) {
     dispatch(action)
   })
 
+  const dispatchToCompare = ((data) => {
+    const action = {
+      type: "ADD_TO_COMPARISON",
+      data: data
+    }
+
+    dispatch(action)
+  })
+
   return (
     data ?
       <div className={c.pdp}>
@@ -83,8 +93,8 @@ export default function Pdp({ setactiveCart }) {
                   <AiOutlineHeart className={c["pdp-top-articles-icon"]} />
                   <span>Sevimlilarga</span>
                 </div>
-                <div className={c["pdp-top-articles-lonely"]}>
-                  <GiScales className={c["pdp-top-articles-icon"]} />
+                <div onClick={(() => dispatchToCompare(data))} className={c["pdp-top-articles-lonely"]}>
+                  <GiScales style={comparison.data.find((e) => e.id === data.id) ? { color: "#FBC100" } : null} className={c["pdp-top-articles-icon"]} />
                   <span>Taqqoslashga</span>
                 </div>
               </div>

@@ -13,12 +13,26 @@ function App() {
   const [activeSelect, setactiveSelect] = useState(t("headermain.select.all"));
   const [activeLogin, setactiveLogin] = useState(false);
   const [windowscrollY, setwindowscrollY] = useState(false);
+  const [mobulewindowscrollY, setmobulewindowscrollY] = useState(false);
   const [activeCart, setactiveCart] = useState(false);
+  const [activeRegion, setactiveRegion] = useState(t("headertop.location"));
+  const [onMouseRegion, setonMouseRegion] = useState(false);
 
   return (
     <div className='App'>
       <HeaderTop setactiveSelect={setactiveSelect} />
-      <HeaderMain activeSelect={activeSelect} setactiveSelect={setactiveSelect} setactiveLogin={setactiveLogin} scrollY={windowscrollY} setactiveCart={setactiveCart} />
+      <HeaderMain
+        activeSelect={activeSelect}
+        setactiveSelect={setactiveSelect}
+        setactiveLogin={setactiveLogin}
+        scrollY={windowscrollY}
+        mobulescrollY={mobulewindowscrollY}
+        setactiveCart={setactiveCart}
+        activeRegion={activeRegion}
+        setactiveRegion={setactiveRegion}
+        onMouseRegion={onMouseRegion}
+        setonMouseRegion={setonMouseRegion}
+      />
       <Routes setactiveCart={setactiveCart} />
       <Footer />
       {
@@ -29,8 +43,18 @@ function App() {
       }
       {
         window.addEventListener("scroll", (e) => {
-          if (window.scrollY >= 500) setwindowscrollY(true)
-          else setwindowscrollY(false)
+          const { innerWidth } = window;
+          if (window.scrollY >= 500 && innerWidth > 956) {
+            setwindowscrollY(true)
+          }
+          else if (window.scrollY >= 500 && innerWidth < 957) {
+            setwindowscrollY(false)
+            setmobulewindowscrollY(true)
+          }
+          else {
+            setwindowscrollY(false)
+            setmobulewindowscrollY(false)
+          }
         })
       }
     </div>

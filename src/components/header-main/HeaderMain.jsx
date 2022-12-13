@@ -2,19 +2,22 @@ import { useEffect, useState } from 'react'
 import c from './HeaderMain.module.css';
 import { useTranslation } from 'react-i18next';
 import logo from '../../assets/images/texnomart-logo.svg';
-import { BsMic, BsSearch, BsBoxSeam, BsCart3, BsPerson } from 'react-icons/bs';
+import { BsMic, BsSearch, BsBoxSeam, BsCart3, BsPerson, BsTelephone } from 'react-icons/bs';
 import { IoIosArrowDown, IoIosArrowForward, IoMdClose } from 'react-icons/io';
 import { AiOutlineHeart, AiFillThunderbolt } from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
-import { GiScales } from 'react-icons/gi';
+import { GiHamburgerMenu, GiScales } from 'react-icons/gi';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import dataKatalog from '../../data/katalog-dummy-data.json';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
+import { SlLocationPin } from 'react-icons/sl';
 
-export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLogin, scrollY, setactiveCart }) {
+export default function HeaderMain({
+  setactiveSelect, activeSelect, setactiveLogin, scrollY, setactiveCart,
+  activeRegion, setactiveRegion, onMouseRegion, setonMouseRegion, mobulescrollY }) {
   const { t } = useTranslation();
   const history = useHistory();
 
@@ -47,42 +50,84 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
       .then(res => setgetCategory(res.data))
   }, [])
 
+  const changeonMouseRegion = (e) => {
+    setactiveRegion(el => e.target.innerText)
+    setonMouseRegion(false)
+  }
+
   return (
     <div className='header'>
       <div className="container">
         <div className={scrollY ? `${c.headerMain}` : null}>
           <div className={c.headerMainWrapper}>
-            <Link to="/" className={c["headerMain__logo-wrapper"]}>
-              <img src={logo} alt="texnomart" />
-            </Link>
-            <div className={c["headerMain__search"]}>
-              <form className={c.form} action="" onSubmit={(() => history.push("/search/" + searchInputValue))}>
-                <div className={c["headerMain__select-wrapper"]} onMouseEnter={() => setonMouseSelect(true)} onMouseLeave={() => setonMouseSelect(false)}>
-                  <span>{activeSelect}</span>
-                  <IoIosArrowDown className={c["headerMain__select-icon"]} />
+            <div className={c.headerMain_location_bar}>
+              <div className={c["headerTop-location"]} onMouseEnter={() => setonMouseRegion(true)} onMouseLeave={() => setonMouseRegion(false)}>
+                <div className={c["headerTop-location-main"]}>
+                  <SlLocationPin className={c.headerTop__location__icon}></SlLocationPin>
+                  <span>{activeRegion}</span>
+                </div>
+                {
+                  onMouseRegion ?
+                    <div className={c["headerTop-location-bar"]}>
+                      <p onClick={changeonMouseRegion}>{t("headertop.location")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.tashkent")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.buxoro")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.andijon")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.fargona")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.namangan")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.samarqand")}</p>
+                      <p onClick={changeonMouseRegion}>{t("headertop.regions.qoraqalpoq")}</p>
+                    </div>
+                    : null
+                }
+              </div>
+              <Link to="/" className={c["headerMain__logo-wrapper"]}>
+                <img src={logo} alt="texnomart" />
+              </Link>
+              <div className={c["headerTop-number"]}>
+                <BsTelephone className={c["headerTop-number-icon"]} />
+                <p>+99871 209 99 44</p>
+              </div>
+            </div>
+            <div className={mobulescrollY ? c["headerMain__search-wrapper-mobile"] : c["header__search-mobile-fixed"]}>
+              <div className={c["headerMain__search-wrapper"]}>
+                <div className={c["headerMain__hamburger"]} onClick={() => setisactiveKatalog((e) => e ? false : true)}>
                   {
-                    onMouseSelect ?
-                      <div className={c["headerMain__select-bar"]}>
-                        <p onClick={setSelect}>{t("headermain.select.all")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.texnica")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.office")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.kitchen")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.home")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.car")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.weather")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.tv")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.phone")}</p>
-                        <p onClick={setSelect}>{t("headermain.select.computer")}</p>
-                      </div>
-                      : null
+                    isactiveKatalog ?
+                      <IoMdClose className={c["headerMain__hamburger-icon"]} />
+                      : <GiHamburgerMenu className={c["headerMain__hamburger-icon"]} />
                   }
                 </div>
-                <input value={searchInputValue} required minLength={3} maxLength={30} type="text" className={c.headerMain__input} onChange={((e) => setsearchInputValue(e.target.value))} />
-                <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} onClick={getSpeechValue} /></div>
-                <button className={c["headerMain__search-btn-wrapper"]}>
-                  <BsSearch className={c["headerMain__search-btn"]} />
-                </button>
-              </form>
+                <div className={c["headerMain__search"]}>
+                  <form className={c.form} action="" onSubmit={(() => history.push("/search/" + searchInputValue))}>
+                    <div className={c["headerMain__select-wrapper"]} onMouseEnter={() => setonMouseSelect(true)} onMouseLeave={() => setonMouseSelect(false)}>
+                      <span>{activeSelect}</span>
+                      <IoIosArrowDown className={c["headerMain__select-icon"]} />
+                      {
+                        onMouseSelect ?
+                          <div className={c["headerMain__select-bar"]}>
+                            <p onClick={setSelect}>{t("headermain.select.all")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.texnica")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.office")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.kitchen")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.home")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.car")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.weather")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.tv")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.phone")}</p>
+                            <p onClick={setSelect}>{t("headermain.select.computer")}</p>
+                          </div>
+                          : null
+                      }
+                    </div>
+                    <input value={searchInputValue} required minLength={3} maxLength={30} type="text" className={c.headerMain__input} onChange={((e) => setsearchInputValue(e.target.value))} />
+                    <div className={c["headerMain__microphone"]}><BsMic className={c["headerMain__microphone-icon"]} onClick={getSpeechValue} /></div>
+                    <button className={c["headerMain__search-btn-wrapper"]}>
+                      <BsSearch className={c["headerMain__search-btn"]} />
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
             <div className={c["navBar"]}>
               <Link to="/" className={c["navBar-item"]}>
@@ -94,7 +139,14 @@ export default function HeaderMain({ setactiveSelect, activeSelect, setactiveLog
                 <span>{t("headermain.enter")}</span>
               </Link>
               <Link to="/comparison" className={c["navBar-item"]}>
-                <div><GiScales className={c["navBar-item-icon"]} /></div>
+                <div style={{ position: "relative" }}>
+                  {
+                    cartData.comparison.data.length ?
+                      <div className={c["navBar__cart-count"]}>{cartData.comparison.data.length}</div>
+                      : null
+                  }
+                  <GiScales className={c["navBar-item-icon"]} />
+                </div>
                 <span>{t("headermain.comparison")}</span>
               </Link>
               <Link to="/" className={c["navBar-item"]}>
