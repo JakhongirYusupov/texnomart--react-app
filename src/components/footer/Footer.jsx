@@ -13,7 +13,7 @@ export default function Footer() {
           <div className={c["footer-main-contact"]}>
             <div className={c["footer-main-contact-number"]}>
               <p>Саволингиз борми? Қўнғироқ қилинг</p>
-              <h3>+998 71 209 99 44</h3>
+              <h3>+998 91 528 24 23</h3>
             </div>
             <div className={c["footer-main-contact-networks"]}>
               <a href='https://www.facebook.com'>
